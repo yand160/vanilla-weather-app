@@ -46,3 +46,9 @@ li {
   width: 64px;
 }
 
+.weather-temperature strong {
+  color: rgb(29, 28, 28);
+  font-size: 64px;
+  line-height: 1;
+  font-weight: 400;
+}
