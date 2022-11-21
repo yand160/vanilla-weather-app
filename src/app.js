@@ -22,43 +22,26 @@ function formatDate(timestamp) {
   return `${day} ${hours}:${minutes}`;
 }
 
-function formatDay(timestamp) {
-  let date = new Date(timestamp * 1000);
-  let day = date.getDay();
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-
-  return days[day];
-}
-
 function displayForecast(response) {
-  let forecast = response.data.daily;
-
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#forecast");
 
+  let days = ["Thu", "Fri", "Sat", "Sun"];
+
   let forecastHTML = `<div class="row">`;
-  forecast.forEach(function (forecastDay, index) {
-    if (index < 6) {
-      forecastElement =
-        forecastHTML +
-        `
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
                             <div class="col-2">
-                                <div class="weather-forecast-date">${formatDay(
-                                  forecastDay.dt
-                                )}</div>
-                                <img src="http://openweathermap.org/img/wn/${
-                                  forecastDay.weather[0].icon
-                                }@2x.png" alt="" width="42" />
+                                <div class="weather-forecast-date">${day}(</div>
+                                <img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/rain-day.png"@2x.png" alt="" width="42" />
                                 <div class="weather-forecast-temperatures">
-                                    <span class="weather-forecast-temperatures-max">
-                                      ${Math.round(forecastDay.temp.max)}°
-                                    </span>
-                                    <span class="weather-forecast-temperatures-min">
-                                        ${Math.round(forecastDay.temp.min)}°
-                                    </span>
+                                    <span class="weather-forecast-temperatures-max">18°</span>
+                                    <span class="weather-forecast-temperatures-min">12°</span>
                                 </div>
                             </div>
                         `;
-    }
   });
 
   forecastHTML = forecastHTML + `</div>`;
@@ -66,6 +49,7 @@ function displayForecast(response) {
 }
 
 function getForecast(coordinates) {
+  console.log(coordinates);
   let apiKey = "c87efc0b2a184897c433833636f55f56";
   let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${coordinates.lon}&lat=${coordinates.lat}&key={apiKey}&units=metrics`;
   axios.get(apiUrl).then(displayForecast);
@@ -113,3 +97,5 @@ let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
 search("New York");
+
+
