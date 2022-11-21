@@ -66,8 +66,8 @@ function displayForecast(response) {
 
 function getForecast(coordinates) {
   console.log(coordinates);
-  let apiKey = "c87efc0b2a184897c433833636f55f56";
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${coordinates.lon}&lat=${coordinates.lat}&key={apiKey}&units=metrics`;
+  let apiKey = "7eo5ded69c3ffa8b7taebbf0b44b9fb2";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lat=40.7128&lon=74.0060&key=7eo5ded69c3ffa8b7taebbf0b44b9fb2&units=metric`;
   axios.get(apiUrl).then(displayForecast);
 }
 
@@ -99,7 +99,7 @@ function displayTemperature(response) {
 
 function search(city) {
   let apiKey = "7eo5ded69c3ffa8b7taebbf0b44b9fb2";
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?query={query}NewYork&key=7eo5ded69c3ffa8b7taebbf0b44b9fb2&units=metrics`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=NewYork&key=7eo5ded69c3ffa8b7taebbf0b44b9fb2&units=metrics`;
   axios.get(apiUrl).then(displayTemperature);
 }
 
