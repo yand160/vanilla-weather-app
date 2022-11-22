@@ -38,22 +38,29 @@ function formatDay(timestamp) {
 }
 
 function displayForecast(response) {
+  let forecastElement = document.querySelector("#forecast");
   let forecast = response.data.daily;
 
-  let forecastElement = document.querySelector("#forecast");
-
   let forecastHTML = `<div class="row">`;
-  days.forEach(function (forecastDay, index) {
+  forecast.forEach(function (forecastDay, index) {
     if (index < 6) {
       forecastHTML =
         forecastHTML +
         `
                             <div class="col-2">
-                                <div class="weather-forecast-date">${day}(</div>
-                                <img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/rain-day.png"@2x.png" alt="" width="42" />
+                                <div class="forecast-date">${
+                                  formatDay.time
+                                }(</div>
+                                <img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${
+                                  forecastDay.condition.icon
+                                }.png" alt="" width="42" />
                                 <div class="weather-forecast-temperatures">
-                                    <span class="weather-forecast-temperatures-max">18°</span>
-                                    <span class="weather-forecast-temperatures-min">12°</span>
+                                    <span class="weather-forecast-temperatures-max">${Math.round(
+                                      forecastDay.temperature.maximum
+                                    )}°</span>
+                                    <span class="weather-forecast-temperatures-min">${Math.round(
+                                      forecastDay.temperature.minimum
+                                    )}°</span>
                                 </div>
                             </div>
                         `;
@@ -80,7 +87,7 @@ function displayTemperature(response) {
   let dateElement = document.querySelector("#date");
   let iconElement = document.querySelector("#icon");
 
-  celsiusTemperature = response.data.main.temp;
+  celsiusTemperature = response.data.main.temperature;
 
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
   cityElement.innerHTML = response.data.name;
