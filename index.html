@@ -23,8 +23,8 @@
                     <form id="search-form" class="mb-3">
                         <div class="row">
                             <div class="col-9">
-                                <input type="search" placeholder="Search for a city..." class="form-control" id="city-input"
-                                    autocomplete="off" />
+                                <input type="search" placeholder="Search for a city..." class="form-control"
+                                    id="city-input" autocomplete="off" />
                                 <button id="current-location" class="btn btn-outline-secondary" type="button">
                                     Current Location
                                 </button>
@@ -45,30 +45,32 @@
                         <div class="col-6">
                             <div class="d-flex weather-temperature">
                                 <img src=" " alt=" " id="icon" class="float-left" />
-                            <div class="float-left">
-                            <strong id="current-temperature"></strong>
-                            <span class="units">°C</span>
+                                <div class="float-left">
+                                    <strong id="current-temperature"></strong>
+                                    <span class="units">°C</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <ul>
+                                <li>
+                                    Humidity: <span id="humidity">%</span>
+                                </li>
+                                <li>Wind: <span id="wind"></span>
+                                    km /h</li>
+                            </ul>
                         </div>
                     </div>
+                    <div class="weather-forecast" id="forecast"></div>
                 </div>
-                <div class="col-6">
-                    <ul>
-                        <li>
-                            Humidity: <span id="humidity">%</span>
-                        </li>
-                        <li>Wind: <span id="wind"></span>
-                            km /h</li>
-                    </ul>
-                </div>
+                <small>
+                    <a href="https://github.com/yand160/vanilla-weather-app" target="_blank">Open-source code</a> by
+                    Yandia Alexis
+                </small>
             </div>
-            <div class="weather-forecast" id="forecast"></div>
-        </div>
-        <small>
-            <a href="https://github.com/yand160/vanilla-weather-app" target="_blank">Open-source code</a> by
-            Yandia Alexis
-        </small>
-    </div>
-    <script src="src/app.js"></script>
+
+            <script src="src/app.js"></script>
+
 </body>
 
 </html>
