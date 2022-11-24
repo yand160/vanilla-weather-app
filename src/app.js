@@ -79,12 +79,12 @@ function getForecast(coordinates) {
 }
 
 function displayTemperature(response) {
-  let temperatureElement = document.querySelector("#temperature");
-  let cityElement = document.querySelector("#city");
-  let descriptionElement = document.querySelector("#description");
+  let temperatureElement = document.querySelector("#current-temperature");
+  let cityElement = document.querySelector("#current-city");
+  let descriptionElement = document.querySelector("#current-description");
   let humidityElement = document.querySelector("#humidity");
   let windElement = document.querySelector("#wind");
-  let dateElement = document.querySelector("#date");
+  let dateElement = document.querySelector("#current-date");
   let iconElement = document.querySelector("#icon");
 
   celsiusTemperature = response.data.temperature.current;
