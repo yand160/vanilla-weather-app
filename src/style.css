@@ -1,5 +1,8 @@
 body {
-  background-color: deepskyblue;
+        background-image: url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/055/236/original/clouds-2085112_1920.jpg?1669308751");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-color: deepskyblue;
   font-family: Arial, Helvetica, sans-serif;
 }
 
